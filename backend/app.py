@@ -3,13 +3,23 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sklearn.feature_extraction.text import TfidfVectorizer
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import nltk
 import string
+import os
 
 from faqs import FAQS
+
+# ── DOWNLOAD NLTK DATA AUTOMATICALLY ──────────────────
+nltk.download('stopwords', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('punkt_tab', quiet=True)
 
 # ── SETUP ──────────────────────────────────────────────
 app = Flask(__name__)
@@ -102,4 +112,5 @@ def chat():
 
 # ── START SERVER ───────────────────────────────────────
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
