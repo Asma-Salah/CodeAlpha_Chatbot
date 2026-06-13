@@ -32,13 +32,16 @@ function useChat() {
 
     try {
       // Step 2 — Send question to Flask backend
-      const response = await fetch("http://localhost:5000/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://codealpha-chatbot-api.onrender.com/chat",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: userInput }),
         },
-        body: JSON.stringify({ question: userInput }),
-      });
+      );
 
       const data = await response.json();
 
