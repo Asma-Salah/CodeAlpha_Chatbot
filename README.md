@@ -4,11 +4,13 @@ An intelligent FAQ chatbot that matches user questions to the most relevant answ
 
 ## Live Demo
 
-🔗 [View Live App]() ← add after deployment
+🔗 [View Live App](https://code-alpha-chatbot-chi.vercel.app)
+
+🔗 [Backend API](https://codealpha-chatbot-api.onrender.com)
 
 ## Screenshot
 
-![App Screenshot]() ← add after deployment
+![App Screenshot](./assests/scrreshot.png)
 
 ## How It Works
 
